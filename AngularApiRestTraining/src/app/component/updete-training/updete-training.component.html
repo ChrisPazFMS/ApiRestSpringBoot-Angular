@@ -1,0 +1,47 @@
+<div class="container" *ngIf="training">
+    <h1>Modifier la formation</h1>
+    <div class="row">
+      <div class="col-md-4"  *ngIf="training">
+        <div class="card mb-3">
+            <img [src]="hostImageTrainings + training.imagePath" alt="Training Image"> 
+          <div class="card-body">
+            <h5 class="card-title">Language : {{ training.name }}</h5>
+            <p class="card-text">{{ training.description }}</p>
+            <p class="card-text">Price: {{ training.price }}</p>
+            <p class="card-text">Quantity: {{ training.quantity }}
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <p class="error-message" *ngIf="error">{{ error }}</p> -->
+  </div>
+  <div class="container" *ngIf="training">
+    <h2>Modifier l'entraînement</h2>
+    <form (ngSubmit)="updateTraining()" #resetFormSave="ngForm">
+      <div class="form-group my-3">
+        <label for="name">Nom</label>
+        <input type="text" class="form-control" id="name" placeholder="Nom" [(ngModel)]="training.name" name="name" required>
+      </div>
+      <div class="form-group my-3">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" placeholder="Description" [(ngModel)]="training.description" name="description" required></textarea>
+      </div>
+      <div class="form-group my-3">
+        <label for="price">Prix</label>
+        <input type="number" class="form-control" id="price" placeholder="Prix" [(ngModel)]="training.price" name="price" required>
+      </div>
+      <div class="form-group my-3">
+        <label for="quantity">Quantité</label>
+        <input type="number" class="form-control" id="quantity" placeholder="Quantité" [(ngModel)]="training.quantity" name="quantity" required>
+      </div>
+      <div class="form-group my-4">
+        <label for="image">Image :</label>
+        <input type="file" class="form-control-file mx-3" id="image" (change)="onFileChange($event)" accept="image/*" required>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary float-start mb-5">Mettre à jour</button>
+      </div>
+    </form>
+  </div>
+  

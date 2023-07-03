@@ -30,10 +30,8 @@ public class Training implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
     private String name;
     private String description;
-
     private double price;
     private int quantity;
     private String imagePath;
