@@ -2,9 +2,7 @@ package fr.fms.business;
 
 import fr.fms.entities.Training;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface IBusiness {
@@ -21,13 +19,29 @@ public interface IBusiness {
      *
      * @return
      */
-    Optional<Training> getTrainingById(Long id);
+    Training getTrainingById(Long id);
 
     /**
-     * Enregitre un Training en base de donnée
+     * Méthode qui enregitre un Training en base de données.
      * 
      * @param training
      * @return
      */
     Training saveTraining(Training training);
+
+    /**
+     * Méthode qui supprime un Training en base de donées.
+     * 
+     * @param id
+     * @return
+     */
+    void deleteTraining(Long id);
+
+    /**
+     * Méthode qui modifie le Training en base de données.
+     * 
+     * @param training
+     * @return
+     */
+    Training updateTraining(Training training);
 }

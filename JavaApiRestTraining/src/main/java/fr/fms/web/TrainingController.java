@@ -52,9 +52,14 @@ public class TrainingController {
      * @param id
      * @return Training
      */
-    @GetMapping("training/{id}")
-    public Training trainingById(@PathVariable Long id) {
-        return iBusiness.getTrainingById(id).get();
+    @GetMapping("/training/{id}")
+    public ResponseEntity<Training> getTrainingById(@PathVariable Long id) {
+        Training training = iBusiness.getTrainingById(id);
+        if (training != null) {
+            return new ResponseEntity<>(training, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/trainings")
@@ -109,4 +114,28 @@ public class TrainingController {
         // Retourner la réponse avec le Training créé
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTraining);
     }
+
+    @PutMapping("/training/{id}")
+    public ResponseEntity<Training> updateTraining(@PathVariable Long id, @RequestBody Training training) {
+        Training existingTraining = iBusiness.getTrainingById(id);
+        if (existingTraining != null) {
+            training.setId(id);
+            Training updatedTraining = iBusiness.updateTraining(training);
+            return new ResponseEntity<>(updatedTraining, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/training/{id}")
+    public ResponseEntity<Void> deleteTraining(@PathVariable Long id) {
+        Training existingTraining = iBusiness.getTrainingById(id);
+        if (existingTraining != null) {
+            iBusiness.deleteTraining(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Training } from 'src/app/models/training';
 import { TrainingService } from 'src/app/services/training/training.service';
+import { environment } from 'src/app/environment/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trainings',
@@ -12,8 +14,12 @@ export class TrainingsComponent implements OnInit {
   trainings: Training[] = [];
   training: Training = new Training();
   error!: string;
+  public localhost: string = environment.localhost;
 
-  constructor(private trainingService: TrainingService) {}
+  constructor(
+    private trainingService: TrainingService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.showTrainings();
@@ -55,6 +61,25 @@ export class TrainingsComponent implements OnInit {
         this.showTrainings();
       },
     });
+  }
+
+  deleteTraining(training: Training): void {
+    this.trainingService.deleteTraining(training.id).subscribe(
+      () => {
+        console.log('Formation supprimée avec succès');
+        this.showTrainings();
+      },
+      (error) =>
+        console.error(
+          "Une erreur s'est produite lors de la suppression de la formation.",
+          error
+        )
+    );
+  }
+
+  updateTraining(training: Training): void {
+    this.trainingService.setSelectedTraining(training);
+    this.router.navigate(['/updete-training']);
   }
 
   /**

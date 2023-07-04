@@ -1,0 +1,20 @@
+<div class="container">
+    <h1> Modifier le cour.</h1>
+  
+    <div class="row">
+      <!-- <div class="col-md-4"  *ngFor="let training of trainings"> -->
+        <div class="card mb-3">
+            <!-- <img [src]="hostImageTrainings + training.imagePath" alt="Training Image">  -->
+          <div class="card-body">
+            <h5 class="card-title">Language : {{ training.name }}</h5>
+            <p class="card-text">{{ training.description }}</p>
+            <p class="card-text">Price: {{ training.price }}</p>
+            <!-- <p class="card-text">Quantity: {{ training.quantity }}<button class="btn btn-primary float-end mx-2" (click)="onUpdateTraining(training.id)">Modifier</button></p> -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <p class="error-message" *ngIf="error">{{ error }}</p> -->
+  <!-- </div> -->
+ 
