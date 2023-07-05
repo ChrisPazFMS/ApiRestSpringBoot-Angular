@@ -9,6 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TrainingComponent } from './component/training/training.component';
 import { UpdeteTrainingComponent } from './component/updete-training/updete-training.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { HomeComponent } from './component/home/home.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { UpdeteTrainingComponent } from './component/updete-training/updete-trai
     TrainingsComponent,
     TrainingComponent,
     UpdeteTrainingComponent,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
   ],
   imports: [HttpClientModule, BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
