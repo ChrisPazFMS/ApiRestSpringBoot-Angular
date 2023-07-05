@@ -1,0 +1,20 @@
+.login{
+width: 7em;
+}
+
+.logout{
+    width: 7em;
+}
+
+.bg-navbar{
+    background: #740091;
+}
+
+.logo{
+    width: 15em;
+   position: absolute;
+   left: 1em;
+  
+   top: 0.01em;
+   
+}

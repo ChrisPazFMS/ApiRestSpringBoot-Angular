@@ -1,0 +1,32 @@
+.login-logo {
+    width: 40px;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .login-logo::before,
+  .login-logo::after {
+    content: "";
+    position: absolute;
+    background-color: #FFFFFF;
+  }
+  
+  .login-logo::before {
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-top-right-radius: 3px;
+  }
+  
+  .login-logo::after {
+    width: 16px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  
